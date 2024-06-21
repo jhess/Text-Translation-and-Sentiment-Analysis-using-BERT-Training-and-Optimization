@@ -27,11 +27,11 @@ pip install torchvision==0.18.0+cu118 --extra-index-url https://download.pytorch
 
 ## Setup
 
-If you get the below error:
+If you get the below error: <br />
 `ERROR: Could not install packages due to an OSError: [WinError 5] Access is denied: 'venv\\Lib\\site-packages\\~orch\\lib\\asmjit.dll' Check the permissions.`
 You have to mark the ~orch folder under site-packages as writeable (not read-only).
 
-If you get the below error:
+If you get this error: <br />
 `WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1006)'))': /packages/0a/16/c83877524c47976f16703d2e05c363244bc1e60ab439e078b3cd046d07db/pillow-10.3.0-cp311-cp311-win_amd64.whl.metadata`
 
 You have to add `--trusted-host files.pythonhosted.org` when installing torchvision with CUDA support:
@@ -64,7 +64,7 @@ os.environ['REQUESTS_CA_BUNDLE'] = bundlePath
 
 When attempting to run the transformer notebook, you may get an error that sentencepiece needs to be also installed along with torch. If you get an SSL error downloading it via pip from pythonhosted.org, run this pip command (may need to run VS code in admin mode):
 ```shell
-pip install --trusted-host=files.pythonhosted.org sentencepiece`
+pip install --trusted-host=files.pythonhosted.org sentencepiece
 ```
 
 Use this [link](https://pytorch.org/get-started/previous-versions/) to see what versions of CUDA enabled PyTorch to install.
