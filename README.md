@@ -75,7 +75,7 @@ You may get this error below when running trainer.Train(): <br />
 `ImportError: Using the Trainer with PyTorch requires accelerate>=0.21.0: Please run pip install transformers[torch] or pip install accelerate -U`
 It is not clear what fixes this. Installing accelerate separately and closing/reopening VS code may solve the issue.
 
-For the Hugging Face transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be [returned](https://discuss.huggingface.co/t/valueerror-the-model-did-not-return-a-loss-from-the-inputs/66486) when calling `trainer.train()` that says:
+For the Hugging Face transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be [returned](https://discuss.huggingface.co/t/the-model-did-not-return-a-loss-from-the-inputs-only-the-following-keys-logits-for-reference-the-inputs-it-received-are-input-values/25420/15) when calling `trainer.train()` that says:
 `ValueError: The model did not return a loss from the inputs, only the following keys: logits. For reference, the inputs it received are input_ids,attention_mask.`
 
 It is recommended therefore to use Pandas dataframes for the train and test data to manually add the 'label' and 'text' column names, which will get converted to transformers library's datasets' Dataset object. Then, the text column values will be tokenized using a custom tokenize function. The 'label' column' values should only be binary integers, i.e. 0 or 1, or there will be more errors returned when calling `trainer.train()`.
