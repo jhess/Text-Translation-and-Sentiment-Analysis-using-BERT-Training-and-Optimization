@@ -1,6 +1,6 @@
 # Text Translation and Sentiment Analysis using Transformer Training and Optimization
 
-This project uses a MarianMTModel Transformer "Helsinki-NLP" model from HuggingFace's model library to translate French and Spanish text to English. It uses the "distilbert-base-uncased" transformer that is subsequently optimized to perform sentiment analysis on the translated text.
+This project uses a MarianMTModel Transformer "Helsinki-NLP" model from Hugging Face's model library to translate French and Spanish text to English. It uses the "distilbert-base-uncased" transformer that is subsequently optimized to perform sentiment analysis on the translated text.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -40,7 +40,7 @@ pip install --trusted-host files.pythonhosted.org torchvision==0.18.0+cu118 --ex
 ```
 
 
-Follow [these](https://stackoverflow.com/questions/71692354/facing-ssl-error-with-huggingface-pretrained-models) steps to download root CA certificate from Huggingface's website.
+Follow [these](https://stackoverflow.com/questions/71692354/facing-ssl-error-with-huggingface-pretrained-models) steps to download root CA certificate from Hugging Face's website.
 
 Then add this code as cell to use the certificate you downloaded as an enrivonment variable (this is dymanic, has to be done every time):
 
@@ -50,7 +50,7 @@ import os
 os.environ['REQUESTS_CA_BUNDLE'] = '<PATH-TO-CA.crt-FILE>'
 ```
 
-NOTE: You may need to add two CA cert files to the CA environment variable: one for HuggingFace, and one for [datasets](https://raw.githubusercontent.com/huggingface/datasets) (*NOTE: requests library seems to have a bug where it doesn't recognize environment variables with more than one path separated by the standard convention of the ";" delimeter and no spaces, and you may get an OSError: `OSError: Could not find a suitable TLS CA certificate bundle, invalid path:`):
+NOTE: You may need to add two CA cert files to the CA environment variable: one for Hugging Face, and one for [datasets](https://raw.githubusercontent.com/huggingface/datasets) (*NOTE: requests library seems to have a bug where it doesn't recognize environment variables with more than one path separated by the standard convention of the ";" delimeter and no spaces, and you may get an OSError: `OSError: Could not find a suitable TLS CA certificate bundle, invalid path:`):
 ```python
 import os
 
@@ -75,7 +75,7 @@ You may get this error below when running trainer.Train(): <br />
 `ImportError: Using the Trainer with PyTorch requires accelerate>=0.21.0: Please run pip install transformers[torch] or pip install accelerate -U`
 It is not clear what fixes this. Installing accelerate separately and closing/reopening VS code may solve the issue.
 
-For the HuggingFace transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be returned when calling `trainer.train()` that says:
+For the Hugging Face transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be returned when calling `trainer.train()` that says:
 `ValueError: The model did not return a loss from the inputs, only the following keys: logits. For reference, the inputs it received are input_ids,attention_mask.`
 
 It is recommended therefore to use Pandas dataframes for the train and test data to manually add the 'label' and 'text' column names, which will get converted to transformers library's datasets' Dataset object. Then, the text column values will be tokenized using a custom tokenize function. The 'label' column' values should only be binary integers, i.e. 0 or 1, or there will be more errors returned when calling `trainer.train()`.
