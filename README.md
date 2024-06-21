@@ -71,8 +71,8 @@ Use this [link](https://pytorch.org/get-started/previous-versions/) to see what 
 
 ## Running and Troubleshooting
 
-You may get this error below when running trainer.Train():
-`ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.21.0`: Please run `pip install transformers[torch]` or `pip install accelerate -U``
+You may get this error below when running trainer.Train(): <br />
+`ImportError: Using the Trainer with PyTorch requires accelerate>=0.21.0: Please run pip install transformers[torch] or pip install accelerate -U`
 It is not clear what fixes this. Installing accelerate separately and closing/reopening VS code may solve the issue.
 
 For the HuggingFace transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be returned when calling `trainer.train()` that says:
