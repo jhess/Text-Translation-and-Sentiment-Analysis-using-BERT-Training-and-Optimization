@@ -28,7 +28,7 @@ pip install torchvision==0.18.0+cu118 --extra-index-url https://download.pytorch
 ## Setup
 
 If you get the below error: <br />
-`ERROR: Could not install packages due to an OSError: [WinError 5] Access is denied: 'venv\\Lib\\site-packages\\~orch\\lib\\asmjit.dll' Check the permissions.`
+`ERROR: Could not install packages due to an OSError: [WinError 5] Access is denied: 'venv\\Lib\\site-packages\\~orch\\lib\\asmjit.dll' Check the permissions.` <br />
 You have to mark the ~orch folder under site-packages as writeable (not read-only).
 
 If you get this error: <br />
