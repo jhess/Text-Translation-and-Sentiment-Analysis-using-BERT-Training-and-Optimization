@@ -82,7 +82,7 @@ It is recommended therefore to use Pandas dataframes for the train and test data
 
 Refer to the masked language modeling (MLM) script for details [here](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_mlm.py).
 
-The parameter `trust_source_code` may need to be set to true, as its behavior is not deterministic when running the trainer; sometimes it will work without this being set to true, other times it will be need to explicitly be set to true.
+The parameter `trust_source_code` may need to be set to true, as its behavior is not deterministic when running the trainer; sometimes it will work without this being set to true, other times it will need to be explicitly set to true.
 ```python
 def compute_metrics(eval_pred):
    load_accuracy = load_metric("accuracy", trust_remote_code=True)
