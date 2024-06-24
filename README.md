@@ -1,6 +1,6 @@
 # Text Translation and Sentiment Analysis using Transformer Training and Optimization
 
-This project uses a MarianMTModel Transformer "Helsinki-NLP" model from Hugging Face's model library to translate French and Spanish text to English. It uses the "distilbert-base-uncased" transformer that is subsequently optimized to perform sentiment analysis on the translated text.
+This project uses a MarianMTModel Transformer "Helsinki-NLP" model from Hugging Face's model library to translate French and Spanish text to English. It also uses the "distilbert-base-uncased" transformer that is subsequently optimized to perform sentiment analysis on the translated text.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -72,7 +72,7 @@ Use this [link](https://pytorch.org/get-started/previous-versions/) to see what 
 ## Running and Troubleshooting
 
 You may get this error below when running trainer.Train(): <br />
-`ImportError: Using the Trainer with PyTorch requires accelerate>=0.21.0: Please run pip install transformers[torch] or pip install accelerate -U`
+`ImportError: Using the Trainer with PyTorch requires accelerate>=0.21.0: Please run pip install transformers[torch] or pip install accelerate -U` <br />
 It is not clear what fixes this. Installing accelerate separately and closing/reopening VS code may solve the issue.
 
 For the Hugging Face transformer model to return a loss, it should be passed labels (i.e. the ground truth targets), besides the inputs (input_ids and attention_mask). If not, a ValueError will be [returned](https://discuss.huggingface.co/t/the-model-did-not-return-a-loss-from-the-inputs-only-the-following-keys-logits-for-reference-the-inputs-it-received-are-input-values/25420/15) when calling `trainer.train()` that says:
