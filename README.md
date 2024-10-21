@@ -1,4 +1,4 @@
-# Text Translation and Sentiment Analysis using Transformer Training and Optimization
+# Text Translation and Sentiment Analysis using BERT Training and Optimization
 
 This project uses a MarianMTModel Transformer "Helsinki-NLP" model from Hugging Face's model library to translate French and Spanish text to English. It also uses the "distilbert-base-uncased" transformer that is subsequently optimized to perform sentiment analysis on the translated text.
 
